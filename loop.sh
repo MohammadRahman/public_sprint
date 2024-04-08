@@ -1,6 +1,11 @@
 #!/bin/bash
+times=$1
 
-for i in {1..10}
+if test $((times)) -gt 100
+then
+    times=100
+fi
+for i in $(seq 1 $times)
 do
-   echo "times I've mohammadobaidurrahman"
+    echo "$i times I've printed mohammadobaidurrahman"
 done
