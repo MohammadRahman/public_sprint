@@ -2,13 +2,17 @@ package sprint
 
 import "fmt"
 
-// data types in go
 func Abacus(a int, b int) int {
-	return a % b
+
+	if b == 0 {
+		return 0
+	}
+	c := a / b
+	return c
 }
 
 func main() {
-	c := Abacus(8, 3)
 
-	fmt.Println(c)
+	c := Abacus(4, 8)
+	fmt.Println("c", c)
 }
