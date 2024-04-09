@@ -8,7 +8,7 @@ func Abacus(a int, b int) int {
 }
 
 func main() {
-	c := Abacus(3, 8)
+	c := Abacus(8, 3)
 
 	fmt.Println(c)
 }
