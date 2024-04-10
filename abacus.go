@@ -4,6 +4,5 @@ func Abacus(a int, b int) int {
 	if b == 0 {
 		return 0
 	}
-	c := a / b
-	return c
+	return a % b
 }
