@@ -1,7 +1,5 @@
 package sprint
 
-import "fmt"
-
 func Season(monthName string) string {
 
 	switch monthName {
@@ -14,6 +12,6 @@ func Season(monthName string) string {
 	case "sep", "oct", "nov":
 		return "autumn"
 	default:
-		return fmt.Sprintf("Invalid input: %s", monthName)
+		return "Invalid input: " + monthName
 	}
 }
