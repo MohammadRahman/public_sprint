@@ -9,5 +9,10 @@ func Countdown(n int) string {
 			result += ", "
 		}
 	}
-	return result + "!"
+	if result[len(result)-1] == '0' {
+		result += "!" // If last character is '0', append "!"
+	} else {
+		result += "0!" // Otherwise, append "0!"
+	}
+	return result
 }
