@@ -1,4 +1,4 @@
-package main
+package sprint
 
 import "fmt"
 
@@ -28,9 +28,4 @@ func Countdown(n int) string {
 	}
 
 	return result
-}
-
-func main() {
-	c := Countdown(7)
-	fmt.Println(c)
 }
