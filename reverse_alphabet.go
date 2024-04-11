@@ -1,9 +1,8 @@
-package main
-
-import "fmt"
+package sprint
 
 func ReverseAlphabet(step int) string {
 	const startLetter = 'z' // Start from 'z' and move backwards
+	skip := rune(step - 1)
 	// If step is non-positive, use a default step of 1
 	if step <= 0 {
 		step = 1
@@ -17,8 +16,7 @@ func ReverseAlphabet(step int) string {
 		result += string(currentLetter)
 
 		// Calculate the next letter position (skip step-1 letters)
-		nextLetter := currentLetter - rune(step-1)
-
+		nextLetter := currentLetter - skip
 		// Ensure we stay within the bounds of 'a' to 'z'
 		if nextLetter < 'a' {
 			break
@@ -30,9 +28,4 @@ func ReverseAlphabet(step int) string {
 
 	// Return the reversed alphabet sequence as a string
 	return result
-}
-
-func main() {
-	c := ReverseAlphabet(5)
-	fmt.Println(c)
 }
