@@ -10,7 +10,7 @@ func Countdown(n int) string {
 		result += string(digit)
 	}
 
-	result += "0!"
+	result += "!"
 
 	return result
 }
