@@ -1,4 +1,4 @@
-package main
+package sprint
 
 import "fmt"
 
@@ -21,9 +21,4 @@ func Combinations() string {
 	}
 
 	return result
-}
-
-func main() {
-	c := Combinations()
-	fmt.Println(c)
 }
