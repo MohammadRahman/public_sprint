@@ -9,5 +9,5 @@ func Countdown(n int) string {
 			result += ", "
 		}
 	}
-	return result + "0!"
+	return result + "!"
 }
