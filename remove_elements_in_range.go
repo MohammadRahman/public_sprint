@@ -19,7 +19,9 @@ func RemoveElementsInRange(arr []float64, from, to int) []float64 {
 		to = len(arr) - 1
 	}
 	var result []float64
-	result = append(result, arr[:from]...)
+	if from > 0 {
+		result = append(result, arr[:from]...)
+	}
 	if to+1 < len(arr) {
 		result = append(result, arr[to:]...)
 	}
