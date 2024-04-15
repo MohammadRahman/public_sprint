@@ -18,5 +18,9 @@ func FilterBySum(arr [][]int, limit int) [][]int {
 			result = append(result, subarray)
 		}
 	}
+	if len(result) == 0 {
+		return [][]int{} // Return an empty 2D array
+	}
+
 	return result
 }
