@@ -1,32 +1,27 @@
 package sprint
 
 func RemoveElementsInRange(arr []float64, from, to int) []float64 {
-	// Normalize negative indices
 	if from < 0 {
 		from = len(arr) + from
 	}
 	if to < 0 {
 		to = len(arr) + to
 	}
-
-	// Ensure from <= to
 	if from > to {
 		from, to = to, from
 	}
-
-	// Validate index boundaries
-	if from < 0 || to >= len(arr) || from >= to {
-		return arr
+	if from < 0 {
+		from = 0
 	}
-
-	// Create a new slice to store the filtered elements
+	if to >= len(arr) {
+		to = len(arr) - 1
+	}
 	var result []float64
-
-	// Append elements before the 'from' index
 	result = append(result, arr[:from]...)
 
-	// Append the element at the 'to' index
-	result = append(result, arr[to])
+	if to+1 < len(arr) {
+		result = append(result, arr[to+1:]...)
+	}
 
 	return result
 
