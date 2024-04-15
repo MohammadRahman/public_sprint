@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package sprint
 
 func RemoveElementsInRange(arr []float64, from, to int) []float64 {
 	// Normalize negative indices
@@ -34,6 +32,6 @@ func RemoveElementsInRange(arr []float64, from, to int) []float64 {
 
 }
 
-func main() {
-	fmt.Println(RemoveElementsInRange([]float64{10., .8, -.4, 20., 7.7, 3.}, 4, 1))
-}
+// func main() {
+// 	fmt.Println(RemoveElementsInRange([]float64{10., .8, -.4, 20., 7.7, 3.}, 4, 1))
+// }
