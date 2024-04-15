@@ -1,8 +1,9 @@
 package sprint
 
 func BalanceOut(arr []bool) []bool {
-	falseCount := 0
+
 	trueCount := 0
+	falseCount := 0
 
 	for _, value := range arr {
 		if value {
@@ -11,20 +12,21 @@ func BalanceOut(arr []bool) []bool {
 			falseCount++
 		}
 	}
-
-	diffs := abs(trueCount - falseCount)
+	// we found 3false count and 1 true count
 	var needed bool
-	var result []bool
+
+	diff := abs(trueCount - falseCount)
 
 	if trueCount > falseCount {
 		needed = false
 	} else {
 		needed = true
 	}
-	for i := 0; i < diffs; i++ {
-		result = append(arr, needed)
+
+	for i := 0; i < diff; i++ {
+		arr = append(arr, needed)
 	}
-	return result
+	return arr
 }
 
 func abs(x int) int {
