@@ -16,22 +16,22 @@ func NbrBase(n int, base string) string {
 	return sign + converted
 }
 
-func isValidBase(base string) bool {
-	if len(base) < 2 {
-		return false
-	}
-	for i := 0; i < len(base); i++ {
-		if base[i] == '+' || base[i] == '-' {
-			return false
-		}
-		for j := i + 1; j < len(base); j++ {
-			if base[i] == base[j] {
-				return false
-			}
-		}
-	}
-	return true
-}
+// func isValidBase(base string) bool {
+// 	if len(base) < 2 {
+// 		return false
+// 	}
+// 	for i := 0; i < len(base); i++ {
+// 		if base[i] == '+' || base[i] == '-' {
+// 			return false
+// 		}
+// 		for j := i + 1; j < len(base); j++ {
+// 			if base[i] == base[j] {
+// 				return false
+// 			}
+// 		}
+// 	}
+// 	return true
+// }
 
 func convertToBase(n int, base string) string {
 	if n == 0 {
