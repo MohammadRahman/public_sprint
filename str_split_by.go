@@ -1,6 +1,9 @@
 package sprint
 
 func StrSplitBy(s, sep string) []string {
+	if s == "" {
+		return []string{}
+	}
 	var substrings []string
 	substring := ""
 
