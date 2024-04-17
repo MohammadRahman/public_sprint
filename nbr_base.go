@@ -1,27 +1,8 @@
 package sprint
 
-func isValidBase(base string) bool {
-	if len(base) < 2 {
-		return false
-	}
-	for _, char := range base {
-		if char == '+' || char == '-' {
-			return false
-		}
-	}
-	return true
-}
-func indexOf(r rune, base string) int {
-	for i, b := range base {
-		if b == r {
-			return i
-		}
-	}
-	return -1
-}
 func NbrBase(n int, base string) string {
 	if !isValidBase(base) {
-		return "NV" // Not a valid base
+		return "NV"
 	}
 
 	sign := ""
@@ -30,17 +11,38 @@ func NbrBase(n int, base string) string {
 		n = -n
 	}
 
-	baseLen := len(base)
+	converted := convertToBase(n, base)
+
+	return sign + converted
+}
+
+func isValidBase(base string) bool {
+	if len(base) < 2 {
+		return false
+	}
+	for i := 0; i < len(base); i++ {
+		if base[i] == '+' || base[i] == '-' {
+			return false
+		}
+		for j := i + 1; j < len(base); j++ {
+			if base[i] == base[j] {
+				return false
+			}
+		}
+	}
+	return true
+}
+
+func convertToBase(n int, base string) string {
 	if n == 0 {
 		return string(base[0])
 	}
-
-	result := ""
+	converted := ""
+	baseLen := len(base)
 	for n > 0 {
-		remainder := n % baseLen
-		result = string(base[remainder]) + result
-		n = n / baseLen
+		digit := n % baseLen
+		converted = string(base[digit]) + converted
+		n /= baseLen
 	}
-
-	return sign + result
+	return converted
 }
