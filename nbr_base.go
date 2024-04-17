@@ -34,6 +34,5 @@ func NbrBase(n int, base string) string {
 		result = string(base[remainder]) + result
 		n = n / baseLen
 	}
-
 	return sign + result
 }
