@@ -29,13 +29,13 @@ func NbrBase(n int, base string) string {
 		sign = "-"
 		n = -n
 	}
+
+	baseLen := len(base)
 	if n == 0 {
 		return string(base[0])
 	}
 
 	result := ""
-	baseLen := len(base)
-
 	for n > 0 {
 		remainder := n % baseLen
 		result = string(base[remainder]) + result
