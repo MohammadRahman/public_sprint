@@ -11,9 +11,17 @@ func isValidBase(base string) bool {
 	}
 	return true
 }
+func indexOf(r rune, base string) int {
+	for i, b := range base {
+		if b == r {
+			return i
+		}
+	}
+	return -1
+}
 func NbrBase(n int, base string) string {
 	if !isValidBase(base) {
-		return "NV"
+		return "NV" // Not a valid base
 	}
 
 	sign := ""
@@ -21,9 +29,8 @@ func NbrBase(n int, base string) string {
 		sign = "-"
 		n = -n
 	}
-
 	if n == 0 {
-		return base[0:1]
+		return string(base[0])
 	}
 
 	result := ""
@@ -34,5 +41,6 @@ func NbrBase(n int, base string) string {
 		result = string(base[remainder]) + result
 		n = n / baseLen
 	}
+
 	return sign + result
 }
