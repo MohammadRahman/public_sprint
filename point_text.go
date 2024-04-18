@@ -10,7 +10,10 @@ type Point struct {
 }
 
 func PointText(p Point) Point {
-	formattedText := fmt.Sprintf("%s at (%.2f, %.2f)", p.Text, p.X, p.Y)
+	xFormatted := fmt.Sprintf("%.2f", p.X)
+	yFormatted := fmt.Sprintf("%.2f", p.Y)
+
+	formattedText := fmt.Sprintf("%s at (%s, %s)", p.Text, xFormatted, yFormatted)
 
 	return Point{
 		X:    p.X,
