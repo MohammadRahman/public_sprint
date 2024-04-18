@@ -2,22 +2,42 @@ package sprint
 
 import "fmt"
 
-// Define the Point structure
 type Point struct {
 	X    float32
 	Y    float32
 	Text string
 }
 
-func PointText(p Point) Point {
-	// Format the X and Y coordinates to two decimal places
-	xFormatted := fmt.Sprintf("%.2f", p.X)
-	yFormatted := fmt.Sprintf("%.2f", p.Y)
+func trimFloat(f float32) string {
+	intPart := int(f)
+	fracPart := f - float32(intPart)
 
-	// Format the Text field with coordinates (X, Y)
+	intPartStr := fmt.Sprintf("%d", intPart)
+
+	fracPartStr := ""
+	for i := 0; i < 6; i++ {
+		fracPart *= 10
+		digit := int(fracPart) % 10
+		fracPartStr += fmt.Sprintf("%d", digit)
+		if int(fracPart) == 0 {
+			break
+		}
+	}
+
+	result := intPartStr
+	if len(fracPartStr) > 0 {
+		result += "." + fracPartStr
+	}
+
+	return result
+}
+
+func PointText(p Point) Point {
+	xFormatted := trimFloat(p.X)
+	yFormatted := trimFloat(p.Y)
+
 	formattedText := fmt.Sprintf("Text at (%s, %s)", xFormatted, yFormatted)
 
-	// Create and return a new Point with the updated Text field
 	return Point{
 		X:    p.X,
 		Y:    p.Y,
