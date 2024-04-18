@@ -10,11 +10,14 @@ type Point struct {
 }
 
 func PointText(p Point) Point {
+	// Format the X and Y coordinates to two decimal places
 	xFormatted := fmt.Sprintf("%.2f", p.X)
 	yFormatted := fmt.Sprintf("%.2f", p.Y)
 
-	formattedText := fmt.Sprintf("%s at (%s, %s)", p.Text, xFormatted, yFormatted)
+	// Format the Text field with coordinates (X, Y)
+	formattedText := fmt.Sprintf("Text at (%s, %s)", xFormatted, yFormatted)
 
+	// Create and return a new Point with the updated Text field
 	return Point{
 		X:    p.X,
 		Y:    p.Y,
