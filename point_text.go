@@ -8,35 +8,20 @@ type Point struct {
 	Text string
 }
 
-func trimFloat(f float32) string {
-	intPart := int(f)
-	fracPart := f - float32(intPart)
-
-	intPartStr := fmt.Sprintf("%d", intPart)
-
-	fracPartStr := ""
-	for i := 0; i < 6; i++ {
-		fracPart *= 10
-		digit := int(fracPart) % 10
-		fracPartStr += fmt.Sprintf("%d", digit)
-		if int(fracPart) == 0 {
-			break
-		}
+func roundFloat(f float32, places int) float32 {
+	scale := float32(1)
+	for i := 0; i < places; i++ {
+		scale *= 10
 	}
-
-	result := intPartStr
-	if len(fracPartStr) > 0 {
-		result += "." + fracPartStr
-	}
-
-	return result
+	return float32(int(f*scale+0.5)) / scale
 }
 
 func PointText(p Point) Point {
-	xFormatted := trimFloat(p.X)
-	yFormatted := trimFloat(p.Y)
 
-	formattedText := fmt.Sprintf("Text at (%s, %s)", xFormatted, yFormatted)
+	xRounded := roundFloat(p.X, 2)
+	yRounded := roundFloat(p.Y, 2)
+
+	formattedText := fmt.Sprintf("Text at (%.2f, %.2f)", xRounded, yRounded)
 
 	return Point{
 		X:    p.X,
