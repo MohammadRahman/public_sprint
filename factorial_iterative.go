@@ -1,15 +1,16 @@
 package sprint
 
-import "math"
-
 func FactorialIterative(n int) int {
-	// Check for invalid input
 	if n < 0 {
 		return 0
 	}
+
+	// Initialize the result to 1
 	result := 1
+
+	// Compute factorial iteratively
 	for i := 1; i <= n; i++ {
-		if result > math.MaxInt32/i {
+		if result > 0 && i > (1<<31-1)/result {
 			return 0
 		}
 		result *= i
