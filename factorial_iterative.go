@@ -7,16 +7,12 @@ func FactorialIterative(n int) int {
 	if n < 0 {
 		return 0
 	}
-
 	result := 1
-
-	// Compute factorial iteratively
 	for i := 1; i <= n; i++ {
 		if result > math.MaxInt32/i {
 			return 0
 		}
 		result *= i
 	}
-
 	return result
 }
