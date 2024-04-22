@@ -1,8 +1,13 @@
 package sprint
 
+import (
+	"strconv"
+	"strings"
+)
+
 func EightQueensSolver() string {
 	var solutions []string
-	board := [8]int{}
+	board := make([]int, 8)
 	isSafe := func(col, row int) bool {
 		for i := 0; i < col; i++ {
 			if board[i] == row || absolute(board[i]-row) == col-i {
@@ -15,11 +20,11 @@ func EightQueensSolver() string {
 	var solveNQueens func(int)
 	solveNQueens = func(col int) {
 		if col == 8 {
-			var solution string
-			for i := 0; i < 8; i++ {
-				solution += string('1' + byte(board[i]))
+			var solution strings.Builder
+			for _, row := range board {
+				solution.WriteString(strconv.Itoa(row + 1))
 			}
-			solutions = append(solutions, solution)
+			solutions = append(solutions, solution.String())
 			return
 		}
 
@@ -32,13 +37,15 @@ func EightQueensSolver() string {
 	}
 
 	solveNQueens(0)
-
-	var result string
-	for _, sol := range solutions {
-		result += sol + "\n"
+	var result strings.Builder
+	for i, sol := range solutions {
+		result.WriteString(sol)
+		if i < len(solutions)-1 {
+			result.WriteString("\n")
+		}
 	}
 
-	return result
+	return result.String()
 }
 
 func absolute(x int) int {
