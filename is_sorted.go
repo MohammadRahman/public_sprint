@@ -5,11 +5,9 @@ func IsSorted(f func(a, b string) int, arr []string) bool {
 	if n <= 1 {
 		return true
 	}
-	for i := 0; i < n-1; i++ {
-		for j := 0; j < n-i-1; j++ {
-			if f(arr[i-1], arr[i]) > 0 {
-				return false
-			}
+	for i := 1; i < n; i++ {
+		if f(arr[i-1], arr[i]) > 0 {
+			return false
 		}
 	}
 	return true
