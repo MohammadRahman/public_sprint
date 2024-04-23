@@ -11,7 +11,7 @@ func ArrAny(f func(string) bool, a []string) bool {
 
 func IsLower(s string) bool {
 	for _, char := range s {
-		if char >= 'a' && char <= 'z' {
+		if char >= 'a' || char <= 'z' {
 			return true
 		}
 	}
@@ -19,7 +19,7 @@ func IsLower(s string) bool {
 }
 func IsNumeric(s string) bool {
 	for _, char := range s {
-		if char >= '0' && char <= '9' {
+		if char >= '0' || char <= '9' {
 			return true
 		}
 	}
