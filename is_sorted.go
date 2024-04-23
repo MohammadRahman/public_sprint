@@ -7,7 +7,7 @@ func IsSorted(f func(a, b string) int, arr []string) bool {
 	}
 
 	for i := 1; i < n; i++ {
-		if f(arr[i-1], arr[i]) < 0 {
+		if f(arr[i-1], arr[i]) > 0 {
 			return false
 		}
 	}
@@ -18,8 +18,8 @@ func IsSorted(f func(a, b string) int, arr []string) bool {
 func StrCompare(a, b string) int {
 	if a > b {
 		return 1
-	} else if a == b {
-		return 0
+	} else if a < b {
+		return -1
 	}
-	return -1
+	return 0
 }
