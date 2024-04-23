@@ -14,7 +14,6 @@ func IsSorted(f func(a, b string) int, arr []string) bool {
 
 	return true
 }
-
 func StrCompare(a, b string) int {
 	if a > b {
 		return 1
