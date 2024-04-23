@@ -10,11 +10,11 @@ func ArrAny(f func(string) bool, a []string) bool {
 }
 func IsUpper(s string) bool {
 	for _, char := range s {
-		if char < 'A' || char > 'Z' {
-			return false
+		if char >= 'A' && char <= 'Z' {
+			return true
 		}
 	}
-	return true
+	return false
 }
 
 func IsLower(s string) bool {
