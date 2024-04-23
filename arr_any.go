@@ -36,7 +36,7 @@ func IsNumeric(s string) bool {
 }
 func IsAlphanumeric(s string) bool {
 	for _, char := range s {
-		if !IsLower(string(char)) && !IsUpper(string(char)) && !IsNumeric(string(char)) {
+		if IsLower(string(char)) || IsUpper(string(char)) || IsNumeric(string(char)) {
 			return false
 		}
 	}
