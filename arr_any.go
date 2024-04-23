@@ -10,13 +10,13 @@ func ArrAny(f func(string) bool, a []string) bool {
 }
 func IsUpper(s string) bool {
 	for _, char := range s {
-		if 'A' <= char && char <= 'Z' {
-			continue
+		if char < 'A' || char > 'Z' {
+			return false
 		}
-		return false
 	}
 	return true
 }
+
 func IsLower(s string) bool {
 	for _, ch := range s {
 		if ch >= 'a' && ch <= 'z' {
@@ -35,10 +35,9 @@ func IsNumeric(s string) bool {
 }
 func IsAlphanumeric(s string) bool {
 	for _, char := range s {
-		if (IsLower(string(char))) || (IsUpper(string(char))) || (IsNumeric(string(char))) {
-			continue
+		if !IsLower(string(char)) && !IsUpper(string(char)) && !IsNumeric(string(char)) {
+			return false
 		}
-		return false
 	}
 	return true
 }
