@@ -12,7 +12,6 @@ func Overlap(arr1, arr2 []int) []int {
 			count[num]--
 		}
 	}
-
 	for i := 0; i < len(result)-1; i++ {
 		for j := 0; j < len(result)-1-i; j++ {
 			if result[j] > result[j+1] {
