@@ -1,28 +1,20 @@
 package sprint
 
+import "sort"
+
 func Overlap(arr1, arr2 []int) []int {
-	if len(arr1) == 0 || len(arr2) == 0 {
-		return []int{}
-	}
 	count := make(map[int]int)
 	for _, num := range arr1 {
 		count[num]++
 	}
-	var result []int
+	common := make([]int, 0)
 	for _, num := range arr2 {
 		if count[num] > 0 {
-			result = append(result, num)
+			common = append(common, num)
 			count[num]--
 		}
 	}
+	sort.Ints(common)
 
-	for i := 0; i < len(result)-1; i++ {
-		for j := 0; j < len(result)-1-i; j++ {
-			if result[j] > result[j+1] {
-				result[j], result[j+1] = result[j+1], result[j]
-			}
-		}
-	}
-
-	return result
+	return common
 }
