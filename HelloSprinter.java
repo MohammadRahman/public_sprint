@@ -3,7 +3,7 @@ package sprint;
 public class HelloSprinter {
 
     public static void main(String[] args) {
-        System.out.println("Hello, sprinter!");
+        System.out.println("Hello, Sprinter!");
     }
 
 }
