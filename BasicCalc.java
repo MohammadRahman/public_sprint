@@ -2,22 +2,32 @@ package sprint;
 
 public class BasicCalc {
     public int doOperation(int a, char op, int b) {
-       if(a == '0' || b == '0' && op == '%' || op == '*' || op == '/'){
-        return 0;
-       }else if(op == '+'){
-        return a + b;
-    }else if(op == '-'){
-        return a - b;
-    }else if(op == '*' && a != 0 || b != 0){
-        return a * b;
-    }else if(op == '/' && a != 0 || b != 0){
-        return a / b;
-    }else if(op == '%' && a != 0 || b != 0){
-        return a % b;
-    }else{
-        return 0;
-    }
-        
+      switch (op) {
+        case '+':
+            return a + b;
+        case '-': 
+            return a - b;
+        case '*':
+            if(a == 0 || b ==0){
+                return 0;
+            }else{
+                return a * b;
+            }
+        case '/':
+            if(a == 0 || b ==0){
+                return 0;
+            }else{
+                return a / b;
+            }
+        case '%':
+            if(a == 0 || b ==0){
+                return 0;
+            }else{
+                return a % b;
+            }
+        default:
+           return 0;
+      }    
     }
 
 }
