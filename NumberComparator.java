@@ -5,7 +5,7 @@ public class NumberComparator {
         if(n > f){
             return "Integer";
         }else if((double)n == f){
-            return "Equal";
+            return "Same";
         }else{
             return "Float";
         }
