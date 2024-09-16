@@ -4,10 +4,10 @@ public class NumberComparator {
     public String whichIsGreater(int n, double f) {
         if(n > f){
             return "Integer";
-        }else if(n < f){
-            return "Float";
-        }else{
+        }else if((double)n == f){
             return "Equal";
+        }else{
+            return "Float";
         }
     }
 }
