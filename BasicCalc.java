@@ -8,12 +8,14 @@ public class BasicCalc {
         return a + b;
     }else if(op == '-'){
         return a - b;
-    }else if(op == '*'){
+    }else if(op == '*' && a != 0 || b != 0){
         return a * b;
-    }else if(op == '/'){
+    }else if(op == '/' && a != 0 || b != 0){
         return a / b;
+    }else if(op == '%' && a != 0 || b != 0){
+        return a % b;
     }else{
-       return a%b;
+        return 0;
     }
         
     }
