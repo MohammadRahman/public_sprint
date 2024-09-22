@@ -1,7 +1,7 @@
 package sprint;
 
 public class DigitSum {
-    public int sumOfDigits(int number) {
+    public static int sumOfDigits(int number) {
         // Implement logic here
         int sum = 0;
         number = absNumber(number);
@@ -13,8 +13,8 @@ public class DigitSum {
         }
         return sum;
     }
-    
-    private int absNumber(int num){
+
+    private static int absNumber(int num){
         if(num < 0){
             return -num;
         }
