@@ -10,8 +10,9 @@ public class PowerCalculator {
             throw new IllegalArgumentException("power must be non-negative.");
         }
         int result = 1;
-        for(int i = 0; i < power; i++){
-            result += base;
+        int absoluteExponent = Math.abs(power);
+        for(int i = 0; i < absoluteExponent; i++){
+            result *= base;
         }
         return result;
     }
