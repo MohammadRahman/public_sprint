@@ -8,8 +8,6 @@ public class ListManipulator {
         // Handle the empty list case.
         if(list.isEmpty()){
             list.add("first");
-            list.add("The size of the list is 1");
-            list.add("last"); 
             return list;
         }
         list.remove(list.size() -1);
