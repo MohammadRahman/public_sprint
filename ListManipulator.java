@@ -10,6 +10,14 @@ public class ListManipulator {
             list.add("first");
             return list;
         }
+        if (list.size() == 1) {
+            list.remove(0);
+            list.add("first");
+            list.add("The size of the list is 1");
+            list.add("last");
+            return list;
+        }
+
         list.remove(list.size() -1);
         list.set(list.size() -1, "The size of the list is " + list.size());
         list.add("last");
