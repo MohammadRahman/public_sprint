@@ -3,23 +3,24 @@ package sprint;
 import java.util.List;
 
 public class ListManipulator {
-     public List<String> manipulateList(List<String> list) {
-        // solution code here
-        if(list == null || list.isEmpty()){
-            list.add("first"); // Add "first"
-            list.add("The size of the list is 1"); // Add the correct size message
-            list.add("last"); // Add "last"
+
+    public List<String> manipulateList(List<String> list) {
+        // Handle the empty list case.
+        if (list == null || list.isEmpty()) {
+            list.add("first");
+            list.add("The size of the list is 1");
+            list.add("last");
             return list;
         }
-        list.remove(list.size() -1);
-        
-        if (list.isEmpty()) {
-            list.add("The size of the list is 1");
-        }else{
-            list.set(list.size() -1, "The size of the list is " + list.size());
-        }
+
+        list.remove(list.size() - 1);
+
+        list.add("The size of the list is " + list.size());
+
         list.add("last");
-        list.set(0,"first");
+
+        list.set(0, "first");
+
         return list;
     }
 }
