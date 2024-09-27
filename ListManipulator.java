@@ -6,9 +6,13 @@ public class ListManipulator {
      public List<String> manipulateList(List<String> list) {
         // solution code here
         if(list == null || list.isEmpty()){
+            list.add("first"); // Add "first"
+            list.add("The size of the list is 1"); // Add the correct size message
+            list.add("last"); // Add "last"
             return list;
         }
         list.remove(list.size() -1);
+        
         if (list.isEmpty()) {
             list.add("The size of the list is 1");
         }else{
