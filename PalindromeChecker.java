@@ -1,7 +1,7 @@
 package sprint;
 
 public class PalindromeChecker {
-    public boolean isPalindrome(String input){
+    public static boolean isPalindrome(String input){
         if(input == null || input.isEmpty()){
             return true;
         }
