@@ -8,12 +8,19 @@ public class WeekendCalculator {
     public static long countWeekendDays(LocalDate start, LocalDate end){
 
         if(start == null || end == null || start.isAfter(end)){
-            throw new IllegalArgumentException("Invalid dates provided");
+            throw new IllegalArgumentException("Invalid dates provided.");
         }
-        return Stream.iterate(start, date -> date.plusDays(1))
-                .limit(start.until(end.plusDays(1)).getDays())
-                .filter(date-> isWeekend(date))
-                .count();
+        long weekendCount = 0;
+        LocalDate currentDate = start;
+
+        while (!currentDate.isAfter(end)) {
+            if (isWeekend(currentDate)) {
+                weekendCount++;
+            }
+            currentDate = currentDate.plusDays(1); // Move to the next day
+        }
+
+        return weekendCount;
     } 
     
     private static boolean isWeekend(LocalDate date){
