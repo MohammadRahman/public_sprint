@@ -4,11 +4,11 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class WeekendCalculator {
-    public static long countWeekendDays(LocalDate start, LocalDate end){
-
-        if(start == null || end == null || !start.isAfter(end)){
+    public static long countWeekendDays(LocalDate start, LocalDate end) {
+        if (start == null || end == null || start.isAfter(end)) {
             throw new IllegalArgumentException("Invalid dates provided.");
         }
+
         long weekendCount = 0;
         LocalDate currentDate = start;
 
@@ -16,14 +16,15 @@ public class WeekendCalculator {
             if (isWeekend(currentDate)) {
                 weekendCount++;
             }
-            currentDate = currentDate.plusDays(1); // Move to the next day
+            currentDate = currentDate.plusDays(1);
         }
 
         return weekendCount;
-    } 
-    
-    private static boolean isWeekend(LocalDate date){
+    }
+
+    private static boolean isWeekend(LocalDate date) {
         DayOfWeek dayOfWeek = date.getDayOfWeek();
         return dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY;
     }
 }
+
