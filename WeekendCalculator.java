@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public class WeekendCalculator {
     public static long countWeekendDays(LocalDate start, LocalDate end){
 
-        if(start == null || end == null || start.isAfter(end)){
+        if(start == null || end == null || !start.isAfter(end)){
             throw new IllegalArgumentException("Invalid dates provided.");
         }
         long weekendCount = 0;
