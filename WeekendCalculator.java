@@ -2,7 +2,6 @@ package sprint;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.stream.Stream;
 
 public class WeekendCalculator {
     public static long countWeekendDays(LocalDate start, LocalDate end){
