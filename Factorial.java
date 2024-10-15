@@ -1,11 +1,16 @@
+package sprint;
+
 public class Factorial {
-    public static int calculateFactorial(int num){
-        if(num < 0){
+
+    public static int calculateFactorial(int n) {
+        // solution code here
+        if(n < 0){
             return 0;
         }
-        if(num ==0 || num == 1){
+        if(n == 0 || n == 1){
             return 1;
         }
-        return num* calculateFactorial(num -1);
+        return n * calculateFactorial(n -1);
     }
+
 }
